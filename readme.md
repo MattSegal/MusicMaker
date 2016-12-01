@@ -52,7 +52,7 @@ git clone git@github.com:MattSegal/MusicMaker.git music_maker
 ```
 Hopefully this works
 
-###4. Install python packages
+###5. Install python packages
 
 Navigate to C:\code\music_maker and install the required python packages
 
