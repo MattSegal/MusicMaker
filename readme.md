@@ -7,6 +7,7 @@ First steps - https://github.com/samhann/FractalMusicGen
 # Stuff
 
 We are using midutil (http://www.emergentmusics.org/midiutil)
+also we should look into https://galactic.ink/midi-js/
 
 # Boostrap working environment
 
