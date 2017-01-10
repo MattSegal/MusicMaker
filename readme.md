@@ -4,6 +4,9 @@ Sam and Matt are making an app that generates music. Weew!
 
 First steps - https://github.com/samhann/FractalMusicGen
 
+# Stuff
+
+We are using midutil (http://www.emergentmusics.org/midiutil)
 
 # Boostrap working environment
 
