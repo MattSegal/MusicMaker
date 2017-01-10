@@ -26,4 +26,4 @@ motifs
 
 * use different keys for comparisons
 
-* aim for short snippets
+* aim for short snippets - same 4 bars twice?
