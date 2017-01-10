@@ -1,0 +1,29 @@
+Ideas
+
+generate a melody => analyse melody => generate chords to match
+
+start with nursery rhyme chords (1 3 5)
+
+generate a chord progression => generate a melody over that
+
+
+define transitions:
+	eg. 2-5-1 to get from 1 chord to another
+
+"random marriage" approach - any chords over any melody
+
+generate a melody
+
+concept of tension?
+	* change pitch
+	* change rhythm
+	* increased dissonance
+
+motifs
+	* rhythmic motifs
+	* phrases
+	* syncopation
+
+* use different keys for comparisons
+
+* aim for short snippets
