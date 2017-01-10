@@ -8,6 +8,8 @@ class MIDIGenerator(object):
 
     def __init__(self,fileName):
         self.outputFileName = fileName
+
+        # Create the MIDIFile Object with 1 track
         self.MIDIObject = MIDIFile(1)
         self.track = 0
         self.MIDIObject.addTrackName(self.track,0,"Sample Track")
@@ -34,6 +36,7 @@ class MIDIGenerator(object):
         return self.notes.index(note) + self.basePitchOfC + (12 * octave)
 
     def addMelody(self,melody):
+        # Times are measured in beats.
         trackTime = 0
         for noteInfo in melody:
             note = noteInfo[0]
@@ -51,19 +54,50 @@ class MIDIGenerator(object):
 
 def composeAndWriteToFile(fileName):
 
-    dummy_melody = [
+    ascending_c_arp = [
+        #Cmaj7
         ('C',2,4,50),
-        ('D',2,4,50),
         ('E',2,4,50),
-        ('F',2,4,50),
         ('G',2,4,50),
-        ('A',2,4,50),
         ('B',2,4,50),
+        #Dmin7
+        ('D',2,4,50),
+        ('F',2,4,50),
+        ('A',2,4,50),
+        ('C',3,4,50),
+        #Cmaj7
+        ('C',2,4,50),
+        ('E',2,4,50),
+        ('G',2,4,50),
+        ('B',2,4,50),
+        #Dmin7
+        ('D',2,4,50),
+        ('F',2,4,50),
+        ('A',2,4,50),
         ('C',3,4,50),
     ]
+
+    chords = [
+        #Cmaj7
+        [(('C',1),('E',1),('G',1),('B',1)),0,16],
+
+        #Dmin7
+        [(('D',1),('F',1),('A',1),('C',1)),16,16],
+
+        #Cmaj7
+        [(('C',1),('E',1),('G',1),('B',1)),32,16],
+
+        #Dmin7
+        [(('D',1),('F',1),('A',1),('C',1)),48,16],
+    ]
+
     # (note, octave, duration, volume)
     MIDIGen = MIDIGenerator(fileName)
-    MIDIGen.addMelody(dummy_melody)
+    MIDIGen.addMelody(ascending_c_arp)
+
+    for chord in chords:
+        MIDIGen.addChord(chord[0],chord[1],chord[2])
+
     MIDIGen.writeMidiToFile()
     
 composeAndWriteToFile("output.mid")
