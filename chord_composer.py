@@ -1,6 +1,35 @@
-class ChordComposer(object):
+import random
 
-    def get_test_chords(self):
+from chord_factory import ChordFactory
+
+
+class ChordComposer(object):
+    BEATS_PER_CHORD = 16
+
+    def __init__(self,scale):
+        self.scale = scale
+
+    def get_random_chords(self,duration_beats):
+        assert duration_beats % self.BEATS_PER_CHORD == 0, "Duration must be divisble by {0}".format(self.BEATS_PER_CHORD)
+
+        chords = []
+        time = 0
+        while time < duration_beats:
+            chord = self.get_random_chord()
+            chord.time = time
+            chords.append(chord)
+            time += self.BEATS_PER_CHORD
+
+        return chords
+
+    def get_random_chord(self):
+        random_int = random.randint(0,6)
+        factory = ChordFactory(self.scale)
+        random_degree = factory.degrees[random_int]
+        chord = factory.get_chord(random_degree,self.BEATS_PER_CHORD)
+        return chord
+
+    def get_test_chords(self,*args):
         return [
         #Cmaj7
         [(('C',1),('E',2),('G',1),('B',2)),0,16],
@@ -23,10 +52,10 @@ class ChordComposer(object):
         #BHalfdim7
         [(('B',1),('D',2),('F',1),('A',1)),96,16], 
 
-                #Cmaj7
+        #Cmaj7
         [(('C',1),('E',2),('G',1),('B',2)),112,16],
 
-         #Amin7
+        #Amin7
         [(('A',1),('C',2),('E',1),('G',1)),128,16], 
 
         #Emin7
