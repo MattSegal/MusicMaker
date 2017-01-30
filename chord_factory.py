@@ -1,21 +1,3 @@
-class Chord(object):
-    time = 0
-    def __init__(self,notes,beats):
-        self.notes = notes
-        self.beats = beats
-
-    def with_simple_voicing():
-        # 1 3 5 7
-        pass
-
-    def with__partial_open_voicing():
-        # 1 3(2) 5 7
-        pass
-
-    def with_open_voicing():
-        # 1 3(2) 5 7(2)
-        pass
-
 class ChordFactory(object):
     degree_intervals = {
         'I':    [0,2,4,6],
@@ -40,3 +22,20 @@ class ChordFactory(object):
         notes = [(self.scale[i],octave) for i in intervals]
         return Chord(notes,beats)
 
+class Chord(object):
+    time = 0
+    def __init__(self,notes,beats):
+        self.notes = notes
+        self.beats = beats
+
+    def with_simple_voicing():
+        # 1 3 5 7
+        pass
+
+    def with__partial_open_voicing():
+        # 1 3(2) 5 7
+        pass
+
+    def with_open_voicing():
+        # 1 3(2) 5 7(2)
+        pass
