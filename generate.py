@@ -12,10 +12,10 @@ chords = ChordComposer().get_test_chords()
 
 MIDIGen = MIDIGenerator(output_file_name)
 
-MIDIGen.addMelody(test_melody)
+MIDIGen.add_melody(test_melody)
 
 for chord in chords:
     # Assumes 3 notes in chord
-    MIDIGen.addChord(chord[0],chord[1],chord[2])
+    MIDIGen.add_chord(chord[0],chord[1],chord[2])
 
-MIDIGen.writeMidiToFile()
+MIDIGen.write_midi_to_file()

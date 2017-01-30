@@ -16,23 +16,23 @@ class MIDIGenerator(object):
         self.notes = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
         self.basePitchOfC = 50
 
-    def addNote(self,note,time,duration,octave,volume):
+    def add_note(self,note,time,duration,octave,volume):
         if note != "S":
-            self.MIDIObject.addNote(self.track,self.channel,self.notePitch(note,octave),time,duration,volume)        
+            self.MIDIObject.addNote(self.track,self.channel,self.note_pitch(note,octave),time,duration,volume)        
         else:
             self.MIDIObject.addNote(self.track,self.channel,50,time,duration,0)        
 
 
-    def addChord(self,notes,time,duration):
+    def add_chord(self,notes,time,duration):
         for noteInfo in notes:
             note = noteInfo[0]
             octave = noteInfo[1]
-            self.MIDIObject.addNote(self.track,self.channel,self.notePitch(note,octave),time,duration,30)
+            self.MIDIObject.addNote(self.track,self.channel,self.note_pitch(note,octave),time,duration,30)
 
-    def notePitch(self,note,octave):
+    def note_pitch(self,note,octave):
         return self.notes.index(note) + self.basePitchOfC + (12 * octave)
 
-    def addMelody(self,melody):
+    def add_melody(self,melody):
         trackTime = 0
         for noteInfo in melody:
             note = noteInfo[0]
@@ -40,10 +40,10 @@ class MIDIGenerator(object):
             duration = noteInfo[2]
             volume = noteInfo[3]
             if(note != ''):
-                self.addNote(note,trackTime,duration,octave,volume)
+                self.add_note(note,trackTime,duration,octave,volume)
             trackTime = trackTime + duration
 
-    def writeMidiToFile(self):
+    def write_midi_to_file(self):
         binfile = open(self.outputFileName, 'wb')
         self.MIDIObject.writeFile(binfile)
         binfile.close()
