@@ -1,11 +1,6 @@
 from midi_generator import MIDIGenerator
 from melody_composer import MelodyComposer
 
-majorScaleNotes = ['C','D','E','F','G','A']
-pentatonic = ['C','D','E','G','A']
-bluesScaleNotes = ['C','D#','F','F#','A#']
-arabScaleNotes = ['C','C#','E','F','G','G#']
-spanish = ['C', 'C#',  'E'  ,'F'  ,'G' , 'G#' ,'A#']
 
 def composeAndWriteToFile(scale,duration,fileName):
     mozart = MelodyComposer()
