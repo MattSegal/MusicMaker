@@ -2,9 +2,9 @@ class Scale:
     
     def __init__(self,root='C'):
         notes = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
-        assert root in notes, 'Note must be {0}'.format(notes)
-        self.root = root
-        note_index = notes.index(root)
+        self.root = root.upper()
+        assert self.root in notes, 'Note must be {0}'.format(notes)
+        note_index = notes.index(self.root)
         self.notes = notes[note_index:] + notes[0:note_index]
 
     @property
@@ -14,8 +14,8 @@ class Scale:
 
     @property
     def minor(self):
-        major_intervals = [0,2,3,5,7,8,10]
-        return [self.notes[i] for i in major_intervals]
+        minor_intervals = [0,2,3,5,7,8,10]
+        return [self.notes[i] for i in minor_intervals]
 
 """
 Other possible scales are:
@@ -28,7 +28,6 @@ Other possible scales are:
 
 
 # Unit Tests
-
 def test_scale_notes_c_root():
     scale = Scale('C')
     assert scale.notes == ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B']
