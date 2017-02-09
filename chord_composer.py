@@ -1,7 +1,6 @@
 import random
 
-from chord_factory import ChordFactory
-
+from chord_factory import ChordFactory, Voicing
 
 class ChordComposer(object):
     BEATS_PER_CHORD = 16
@@ -25,8 +24,9 @@ class ChordComposer(object):
     def get_random_chord(self):
         random_int = random.randint(0,6)
         factory = ChordFactory(self.scale)
+        voicing = Voicing.get_random()
         random_degree = factory.degrees[random_int]
-        chord = factory.get_chord(random_degree,self.BEATS_PER_CHORD)
+        chord = factory.get_chord(random_degree,self.BEATS_PER_CHORD,voicing)
         return chord
 
     def get_test_chords(self,*args):

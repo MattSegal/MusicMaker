@@ -1,4 +1,4 @@
-from ..chord_factory import ChordFactory
+from ..chord_factory import ChordFactory, Voicing
 from ..chord_composer import ChordComposer
 
 def test_c_major_first():
@@ -10,8 +10,16 @@ def test_c_major_first():
 def test_c_major_second():
     scale = ['C','D','E','F','G','A','B']
     chord = ChordFactory(scale).get_chord('II',16)
-    assert chord.notes == [('D',1),('F',1),('A',1),('C',1)]
+    assert chord.notes == [('D',1),('F',1),('A',1),('C',2)]
     assert chord.beats == 16
+
+def test_c_major_open_voicing():
+    scale = ['C','D','E','F','G','A','B']
+    voicing = Voicing.open
+    chord = ChordFactory(scale).get_chord('II',16,voicing)
+    assert chord.notes == [('D',1),('F',2),('A',1),('C',3)]
+    assert chord.beats == 16
+
 
 def test_four_random_chords():
     scale = ['C','D','E','F','G','A','B']
