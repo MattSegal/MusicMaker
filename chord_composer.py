@@ -76,3 +76,5 @@ class ChordComposer(object):
         #Cmaj7
         [(('C',1),('E',2),('G',1),('B',2)),224,32],
         ]
+
+        #I am adding this note so I can push again, so I can include a note that says 'Matt did most of the work on the push from my git account on the 9th of Feb'
