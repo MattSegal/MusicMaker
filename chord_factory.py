@@ -7,7 +7,7 @@ class Voicing:
 
     @staticmethod
     def get_random():
-        return [randint(0,1), randint(1,4),randint(0,2), randint(2,4)]
+        return [randint(0,1), randint(0,2),randint(0,1), randint(0,2)]
 
 class ChordFactory(object):
     degree_intervals = {

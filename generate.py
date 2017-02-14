@@ -4,7 +4,7 @@ from chord_composer import ChordComposer
 from scale import Scale
 
 output_file_name = "output.mid"
-duration_beats = 512
+duration_beats = 1024
 scale = Scale('C').major
 
 test_melody = MelodyComposer().compose(scale,duration_beats)
